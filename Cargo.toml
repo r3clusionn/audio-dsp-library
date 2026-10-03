@@ -1,0 +1,25 @@
+[package]
+name = "adsp"
+version = "0.1.0"
+edition = "2021"
+description = "Audio DSP building blocks with no dependencies: FFT for any length, windows, FIR and IIR filter design, convolution, a polyphase resampler, dynamics and WAV files. Checked against NumPy and SciPy."
+license = "MIT"
+
+[lib]
+name = "adsp"
+
+[[bin]]
+name = "adsp"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1"
+rustfft = "6"
+
+[profile.release]
+lto = true
+codegen-units = 1
+debug = false
